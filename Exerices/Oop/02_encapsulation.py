@@ -21,7 +21,7 @@ class BankAccount():
     
     @credit_line.setter
     def credit_line(self, value):
-        self.credit_line = value
+        self.__credit_line = value
         
     def withdraw(self, amount):
         if(self.__balance - amount > -self.__credit_line):
