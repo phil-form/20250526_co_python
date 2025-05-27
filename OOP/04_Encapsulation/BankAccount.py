@@ -23,25 +23,34 @@ class BankAccount():
     @property
     def max_withdraw(self):
         return self.__balance + self.__credit_line
+    
+    @property
+    def balance(self):
+        return self.__balance
+    
+    @balance.setter
+    def balance(self, value):
+        self.__balance == value
         
     def withdraw(self, amount):
-        if(self.__balance - amount > -self.credit_line):
-            self.__balance -= amount
+        if(self.balance - amount > -self.credit_line):
+            self.balance -= amount
         else:
             print("Permission denied")
-        self.extracts.append(self.__balance)
+        self.extracts.append(self.balance)
             
     def deposit(self, amount):
         if(amount <= 0):
             print("Deposit must be a positive value")
         else:
-            self.__balance += amount
-        self.extracts.append(self.__balance)
+            self.balance += amount
+        self.__extracts.append(self.balance)
         
 ba = BankAccount(12345, 500, 500)
 print(ba.__dict__)
 ba.__balance = 5
 print(ba.__dict__)
+ba.deposit(500)
 # this will call the property def credit_line(self):
 print(ba.credit_line)
 # this will call the setter def credit_line(self, value):
